@@ -2,12 +2,13 @@ import numpy as np
 import pdb
 
 # R matrix
-R = np.matrix([ [-1,-1,-1,-1,0,-1],
-        [-1,-1,-1,0,-1,100],
-        [-1,-1,-1,0,-1,-1],
-        [-1,0,0,-1,0,-1],
-        [0,-1,-1,0,-1,100],
-        [-1,0,-1,-1,0,100] ])
+R = np.matrix([
+        [-1,0,-1,-1,-1,-1],
+        [-1,-1,0,0,-1,0],
+        [-1,0,-1,-1,-1,-1],
+        [-1,0,-1,-1,-1,100],
+        [-1,0,-1,-1,-1,100],
+        [-1,-1,-1,0,0,100] ])
 
 # Q matrix
 Q = np.matrix(np.zeros([6,6]))
@@ -66,6 +67,17 @@ while current_state != 5:
     current_state = next_step
 
 current_state = 2
+print("\nStarting at: ",current_state)
+
+while current_state != 5:
+    #pdb.set_trace()
+    #print(current_state)
+    next_step = np.argmax(Q[current_state])
+    print("\n Next Step: ",next_step)
+
+    current_state = next_step
+
+current_state = 4
 print("\nStarting at: ",current_state)
 
 while current_state != 5:
