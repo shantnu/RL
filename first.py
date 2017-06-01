@@ -56,9 +56,7 @@ print(Q)
 current_state = 0
 print("\nStarting at: ",current_state)
 
-while current_state != 5:
-    #pdb.set_trace()
-    #print(current_state)
+while current_state != 5:    
     next_step = np.argmax(Q[current_state])
     print("\n Next Step: ",next_step)
 
@@ -68,8 +66,6 @@ current_state = 2
 print("\nStarting at: ",current_state)
 
 while current_state != 5:
-    #pdb.set_trace()
-    #print(current_state)
     next_step = np.argmax(Q[current_state])
     print("\n Next Step: ",next_step)
 
@@ -79,8 +75,6 @@ current_state = 4
 print("\nStarting at: ",current_state)
 
 while current_state != 5:
-    #pdb.set_trace()
-    #print(current_state)
     next_step = np.argmax(Q[current_state])
     print("\n Next Step: ",next_step)
 
