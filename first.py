@@ -27,25 +27,23 @@ def choose_random_action(available_actions):
     return next_action
 
 
+state = np.random.choice(6, 1)
+
 for _ in range(1000):
     while (True):
-        #pdb.set_trace()
+        
 
-
-        initial_state = np.random.choice(6, 1)
-
-        available_actions = get_available_actions(initial_state)
+        available_actions = get_available_actions(state)
 
         next_action = choose_random_action(available_actions)
 
 
-        #print(next_action)
-
         next_states = get_available_actions(next_action)
 
-        #print(Q[5,next_states])
 
-        Q[initial_state, next_action] = R[initial_state, next_action] + ( 0.8 * np.max(Q[next_action,next_states]))
+        Q[state, next_action] = R[state, next_action] + ( 0.8 * np.max(Q[next_action, next_states]))
+
+        state = next_action
 
         if next_action == 5:
             break
