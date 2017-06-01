@@ -13,10 +13,12 @@ R = np.matrix([
 # Q matrix
 Q = np.matrix(np.zeros([6,6]))
 
-
+# Find possible actions.
+# Return all R matrix values greater than equal to 0
 def get_available_actions(state):
     current_state = R[state]
-
+    
+    # Return all values not -1
     available_actions = np.where(current_state >= 0)[1]
     return available_actions
 
