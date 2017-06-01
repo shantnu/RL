@@ -27,9 +27,9 @@ def choose_random_action(available_actions):
     return next_action
 
 
-state = np.random.choice(6, 1)
-
 for _ in range(1000):
+    state = np.random.choice(6, 1)
+
     while (True):
         
 
@@ -37,9 +37,7 @@ for _ in range(1000):
 
         next_action = choose_random_action(available_actions)
 
-
         next_states = get_available_actions(next_action)
-
 
         Q[state, next_action] = R[state, next_action] + ( 0.8 * np.max(Q[next_action, next_states]))
 
