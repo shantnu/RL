@@ -25,7 +25,7 @@ def run_single_episode(parameters, env):
 
 highest_reward_so_far = 0
 best_parameters_so_far = None
-
+count = 0
 
 for _ in range(1000):
 
@@ -36,8 +36,9 @@ for _ in range(1000):
     print("Reward = ", reward)
 
     if reward > highest_reward_so_far:
+        count += 2
         highest_reward_so_far = reward
         best_parameters_so_far = parameters
         print("\n\n Best Current Reward: ", reward)
 
-print("\n\n Best Current Reward: ", reward)        
+print("\n\n Best Current Reward: {} found on count {} ".format(highest_reward_so_far, count))
