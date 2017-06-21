@@ -2,7 +2,7 @@ sudo apt-get update
 
 sudo apt-get install golang libjpeg-turbo8-dev make zlib1g-dev libav-tools ffmpeg python-numpy python-dev cmake zlib1g-dev libjpeg-dev xvfb libav-tools xorg-dev python-opengl libboost-all-dev libsdl2-dev swig libstdc++6 python3-setuptools git -y
 
-pip install keras tensorflow
+pip install keras tensorflow keras-rl
 
 
 mkdir python_libs

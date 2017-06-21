@@ -20,8 +20,6 @@ learning_rate = .05
 
 discount_factor = .99
 
-exploration_rate = 0.99
-
 Q_Table = np.zeros([env.observation_space.n, env.action_space.n])
 print("Q_Table Table shape = ", Q_Table.shape)
 
@@ -41,7 +39,7 @@ for game in range(1, games):
 
     while not done:
               
-        action = np.argmax(Q_Table[state,:] + np.random.randn(1, env.action_space.n) * (1 / game ) ) 
+        action = np.argmax(Q_Table[state,:] + np.random.randn(1, env.action_space.n) * (1 / game ) )
          
            
         state_new, reward, done, _  = env.step(action)
@@ -49,7 +47,7 @@ for game in range(1, games):
         reward_modified = modify_reward(reward,done)
 
         #update Q_Table-Table with new knowledge
-        Q_Table[state, action] = Q_Table[state, action] + learning_rate*(reward_modified+ (discount_factor * np.max(Q_Table[state_new,:])-Q_Table[state, action]))
+        Q_Table[state, action] = Q_Table[state, action] + learning_rate * (reward_modified + (discount_factor * np.max(Q_Table[state_new,:])-Q_Table[state, action]))
 
 
         reward_current_state += reward

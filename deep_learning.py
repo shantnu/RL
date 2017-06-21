@@ -5,7 +5,7 @@ from keras.models import Sequential
 from keras.optimizers import Adam
 from keras.layers import Dense, Convolution2D
 from queue import Queue
-import better_exceptions
+#import better_exceptions
 import random
 
 env = gym.make('CartPole-v0') 
@@ -25,9 +25,7 @@ action_size = env.action_space.n
 
 model = Sequential()
 model.add(Dense(30, input_dim=observation_size, activation='relu'))
-#model.add(Dense(300, input_dim=observation_size, activation='relu'))
 model.add(Dense(50, input_dim=observation_size, activation='relu'))
-#model.add(Dense(20, activation='relu'))
 model.add(Dense(1, activation='linear'))
 model.compile(loss='mse', optimizer=Adam())
 
@@ -45,10 +43,10 @@ def choose_next_state(observation, exploration_rate):
     else:
         return np.argmax(action)
 
-def play():
+def play_and_train():
 
-    # Run for 50 times, or while queue full
-    batch_size = 500
+    # Run for batch_size times, or while queue full
+    batch_size = 50
     batch_size = min(batch_size, len(memory))
     batch = random.sample(memory, batch_size)
     
@@ -65,8 +63,6 @@ def play():
         else:
             target = reward + (learning_rate  * np.amax(model.predict(next_state)[0]))
 
-        #pdb.set_trace()
-        #target = np.reshape(target, [1,action_size])
         X[i] = state
         Y[i] = target
 
@@ -110,4 +106,4 @@ for game in range(games):
             break
 
     #print("\nStarting play")
-    play()
+    play_and_train()
