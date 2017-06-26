@@ -1,3 +1,7 @@
+Follow these instructions to install the virtual machine for the Python Reinforcement Learning book.
+
+If you get stuck, make sure you spend at least 20-30 minutes googling before asking for help.
+
 **Part 1**
 
 Get VirtualBox: [https://www.virtualbox.org/wiki/Downloads](https://www.virtualbox.org/wiki/Downloads)
@@ -51,7 +55,7 @@ NOT:
 
 
 
-2) Then run these commands:
+2) Then run these commands (can also get them from [https://github.com/shantnu/RL/blob/master/install.sh](https://github.com/shantnu/RL/blob/master/install.sh) ):
 
 ```
 sudo apt-get update
@@ -78,6 +82,6 @@ conda install libgcc
 pip install gym
 ```
 
-  
+**Finally:**  
 
-Run this file, it will tell you if everything has been installed: https://github.com/shantnu/RL/blob/master/test_install.py
+Run this file, it will tell you if everything has been installed: [https://github.com/shantnu/RL/blob/master/test_install.py](https://github.com/shantnu/RL/blob/master/test_install.py)
